@@ -10,3 +10,9 @@ Scripts used to make a complete backup of container's data.
 ./backup-influxdb.sh <docker-compose-file> <docker-compose-service-name> <backup-location-inside-container>
 ./backup-postgresql.sh <docker-compose-file> <docker-compose-service-name> <backup-location-inside-container>
 ```
+
+###### Example
+
+```shell
+$ ./backup-influxdb.sh docker-compose.yml influxdb /backup
+```
