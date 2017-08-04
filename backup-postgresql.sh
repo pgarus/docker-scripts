@@ -14,4 +14,4 @@ $SERVICE_CMD pg_dumpall -c -U postgres --quote-all-identifiers -f $BACKUP_LOCATI
 $SERVICE_CMD bzip2 -9 $BACKUP_LOCATION/$DATE.sql
 
 # keep only 3 newest backups
-$SERVICE_CMD sh -c "cd $BACKUP_LOCATION; find . -regex '\./\d\d\d\d-\d\d-\d\d\.sql\.bz2' | sort -r | tail -n +4 | xargs rm"
+$SERVICE_CMD sh -c "cd $BACKUP_LOCATION; find . -regex '\./\d\d\d\d-\d\d-\d\d\.sql\.bz2' | sort -r | tail -n +4 | xargs -r rm"
