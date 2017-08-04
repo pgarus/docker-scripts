@@ -17,3 +17,7 @@ done
 
 # packing
 $SERVICE_CMD sh -c "cd $BACKUP_LOCATION; tar jcf $DATE.tar.bz2 $DATE  &&  rm -rf $BACKUP_LOCATION/$DATE"
+
+# keep only 3 newest backups
+$SERVICE_CMD sh -c "cd $BACKUP_LOCATION; find . -regex '\./\d\d\d\d-\d\d-\d\d\.tar\.bz2' | sort -r | tail -n +4 | xargs rm"
+
