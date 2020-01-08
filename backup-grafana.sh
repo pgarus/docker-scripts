@@ -11,5 +11,5 @@ DATE=`date +%Y-%m-%d`
 $SERVICE_CMD sh -c "cd $BACKUP_LOCATION; cp /var/lib/grafana/grafana.db grafana.db.$DATE  &&  gzip -9 grafana.db.$DATE"
 
 # keep only 3 newest backups
-$SERVICE_CMD sh -c "cd $BACKUP_LOCATION; find . -regextype 'posix-extended' -regex '\./grafana\.db\.[0-9]{4}-[0-9]{2}-[0-9]{2}\.gz' | sort -r | tail -n +4 | xargs -r rm"
+$SERVICE_CMD sh -c "cd $BACKUP_LOCATION; find . -regex '\./grafana\.db\.[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\.gz' | sort -r | tail -n +4 | xargs -r rm"
 
